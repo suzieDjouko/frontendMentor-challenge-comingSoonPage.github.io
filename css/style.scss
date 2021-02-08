@@ -1,0 +1,247 @@
+/* ------------------------ */
+/* $Catelog */
+/* ------------------------ */
+/**
+* Reset
+* Typography
+* Color 
+* Global
+* Components
+**/
+/* ------------------------ */
+/* $Reset */
+/* ------------------------ */
+* {
+  position: relative;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+
+/* ------------------------ */
+/* $Typography */
+/* ------------------------ */
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400;600&display=swap");
+
+body {
+  font-family: "Josefin Sans", sans-serif, helvetica, Arial;
+  font-size: 16px;
+  line-height: 32px;
+}
+
+/* ------------------------ */
+/* $Color */
+/* ------------------------ */
+$color--primary: hsl(0, 36%, 70%);
+$color--primary-soft: hsl(0, 93%, 68%);
+$color--red-grayish: hsl(0, 6%, 24%);
+$color--linear-neutral: 135deg, hsl(0, 0%, 100%), hsl(0, 100%, 98%);
+$color--linear-primary: 135deg, hsl(0, 80%, 86%), hsl(0, 74%, 74%);
+
+/* ------------------------ */
+/* $Global */
+/* ------------------------ */
+body {
+  background-image: url(../images/bg-pattern-desktop.svg);
+}
+// image
+.imgbox-4-3 {
+  width: 100%;
+  padding-top: 75%;
+  position: relative;
+}
+.imgbox-3-4 {
+  width: 100%;
+  padding-top: calc(100% / 3 * 4);
+  position: relative;
+}
+.image {
+  filter: saturate(1.1);
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+/* ------------------------ */
+/* $Components */
+/* ------------------------ */
+@media (min-width: 768px) {
+  .bg-photo {
+    width: 45vw;
+    height: 100vh;
+    position: absolute;
+    right: 0;
+    top: 0;
+    .image-sm {
+      display: none;
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  .bg-photo {
+    width: 100vw;
+    .image-sm {
+      display: block;
+    }
+    .image-md {
+      display: none;
+    }
+  }
+}
+// header
+.header {
+  padding: 80px 0;
+  .logo {
+    display: flex;
+    align-items: center;
+  }
+}
+@media (max-width: 768px) {
+  .header {
+    padding: 40px 0;
+  }
+}
+// hero
+.hero {
+  .hero_title {
+    padding: 16px 0;
+    text-transform: uppercase;
+    font-size: 60px;
+    line-height: 60px;
+    font-weight: 400;
+    letter-spacing: 15px;
+    span {
+      font-weight: 300;
+      color: $color--primary;
+    }
+  }
+  .hero_content {
+    padding: 16px 0;
+    color: $color--primary;
+  }
+}
+@media (max-width: 768px) {
+  .hero {
+    text-align: center;
+    .hero_title {
+      padding-top: 80px;
+      font-size: 40px;
+      line-height: 40px;
+    }
+    .hero_content {
+      font-size: 14px;
+    }
+  }
+}
+// form
+form {
+  margin-top: 16px;
+  height: 64px;
+  color: $color--primary;
+  border: 1px solid $color--primary;
+  padding: 16px;
+  width: 100%;
+  border-radius: 32px;
+  &.invalid {
+    border: 2px solid $color--primary-soft;
+  }
+
+  &::after {
+    content: "";
+    background: url(../images/icon-error.svg) center no-repeat;
+    height: 64px;
+    width: 64px;
+    position: absolute;
+    right: 25%;
+    top: 0;
+    display: none;
+  }
+  &.invalid::after {
+    display: block;
+  }
+
+  .label-text {
+    position: absolute;
+    left: 5%;
+    top: 50%;
+    transform: translateY(-50%);
+    opacity: 0.5;
+    &.is-active {
+      top: -10px;
+      opacity: 1;
+      font-size: 12px;
+      color: rgba($color--primary, 0.7);
+    }
+  }
+  .js-input {
+    position: absolute;
+    left: 0;
+    top: 0;
+    color: $color--red-grayish;
+    height: 99%;
+    width: 100%;
+    padding-left: 16px;
+    border-radius: inherit;
+    background-color: transparent;
+    outline: none;
+    border: none;
+
+    &:focus {
+      background-color: rgba(#eee, 0.5);
+    }
+  }
+  .btn-submit {
+    height: inherit;
+    width: 25%;
+    font-size: 32px;
+    line-height: inherit;
+    border-radius: inherit;
+    outline: none;
+    border: none;
+    color: white;
+    border-color: transparent;
+    position: absolute;
+    right: -2px;
+    top: -2px;
+    background: linear-gradient($color--linear-primary);
+    box-shadow: 0 10px 15px rgba($color--primary, 0.2);
+    cursor: pointer;
+    &:hover {
+      background: linear-gradient($color--linear-primary);
+      box-shadow: 0 15px 20px rgba($color--primary, 0.6);
+    }
+  }
+}
+
+@media (max-width: 768px) {
+  form {
+    margin-top: 40px;
+    height: 58px;
+    width: 100%;
+    border-radius: 29px;
+  }
+}
+
+// footer
+.footer {
+  padding: 16px;
+  margin-top: 100px;
+  padding-bottom: 0;
+  opacity: 0.5;
+}
+.attribution {
+  font-size: 11px;
+  text-align: center;
+}
+.attribution a {
+  color: hsl(228, 45%, 44%);
+}
